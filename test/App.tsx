@@ -7,15 +7,15 @@ const App: React.FC = () => {
 		<Flex.Container center className={'fill'}>
 			<Flex.Item shrink>
 				<Card>
+					<Input label={'username'}/>
+					<Input label={'password'} type={'password'}/>
+					<br/>
+					Keep Session <Switch checked={true} handle={console.log}/>
+					<br/>
+					<br/>
 					<Button handle={() => console.log('Test')}>
-						Click
+						login
 					</Button>
-					<br/>
-					<br/>
-					<Switch checked={true} handle={console.log}/>
-					<br/>
-					<br/>
-					<Input initial={'test'} disabled valid={(s)=> s ==='test'} label={'Username'} handle={console.log}/>
 				</Card>
 			</Flex.Item>
 		</Flex.Container>
