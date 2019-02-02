@@ -1,0 +1,39 @@
+@require '../Vars.styl'
+
+.button
+	position: relative
+	display: inline-block
+	border-bottom: $line-size solid $dark
+	padding: ($spacing / 4) $spacing
+	padding-bottom: 0
+	transition: $t-input, color 0s
+	color: $dark
+	cursor: pointer
+	text-align: center
+	user-select: none
+
+	.text
+		transition: $t-input
+		font-weight: 500
+		position: relative
+		z-index: 1
+		margin: 0 1em 0 -1em
+
+	&:hover
+		& .text
+			margin: 0
+
+		& > .bg
+			width: 100%
+
+		color: $light
+
+	& > .bg
+		position: absolute
+		bottom: -1px
+		left: 0
+		width: 0
+		height: 100%
+		background: $dark
+		z-index: 0
+		transition: $t-input

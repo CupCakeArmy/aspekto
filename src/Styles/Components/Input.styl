@@ -1,0 +1,39 @@
+@require './Vars.styl'
+
+.input
+	position relative
+	font-size 1em
+	margin 1em 0
+
+	.label
+		position absolute
+		top ($spacing / 5)
+		color $darker
+		font-weight 500
+		transition $t-input
+
+		&.top
+			transform translate(-20%, -80%) scale(0.6)
+			color $darker
+
+	.field
+		font-family inherit
+		font-size inherit
+		width 100%
+		padding ($spacing / 4) 0 ($spacing / 4) 0
+		outline none
+		border 0
+		border-bottom $line-size solid $dark
+
+		&:hover
+			outline none
+
+		&:disabled
+			user-select none
+
+	&.error
+		& .label
+			color $error
+
+		& .field
+			border-bottom-color $error

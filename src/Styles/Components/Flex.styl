@@ -1,0 +1,21 @@
+.flex
+	&.col
+		display: flex
+		overflow: auto
+
+		&.center
+			justify-content: center
+			align-items: center
+
+		&.vertical
+			flex-direction: column
+
+		&.horizontal
+			flex-direction: row
+
+	&.row
+		&.shrink
+			flex: 0 1 auto
+
+		&grow
+			flex: 1 0 auto

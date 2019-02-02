@@ -1,0 +1,1 @@
+export const removeRepeatingSpaces = (s: string): string => s.replace(/ {2,}/g, ' ')
