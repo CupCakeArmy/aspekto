@@ -1,5 +1,7 @@
 # aspekto
-UI Kit written in Typescript.
+UI Kit written in Typescript. Declaration files are included.
+
+Only [`13kB`](https://bundlephobia.com/result?p=aspekto)
 
 <p align="center">
   <img src="https://github.com/CupCakeArmy/aspekto/raw/master/test/aspekto.gif"/>
