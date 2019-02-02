@@ -1,6 +1,10 @@
 # aspekto
 UI Kit written in Typescript.
 
+<p align="center">
+  <img src="https://github.com/CupCakeArmy/aspekto/raw/master/test/aspekto.gif"/>
+</p>
+
 ## Install
 
 ```bash
