@@ -26,11 +26,43 @@ Callback function that gets fired when the button is clicked
 ```jsx
 import { Switch } from 'aspekto'
 
-<Switch handle={(value)=> console.log(`You chose: ${value ? '🍕': '🍔'}`)}/>
+<Switch handle={(value)=> console.log(`You chose: ${value ? '🍕': '🍔'}`)} />
 ```
 
-#### handle: `()=> any`
-Callback function that gets fired when the button is clicked
+#### handle `(value: boolean)=> any`
+Callback function that gets fired when the switch is altered
 
-#### checked: `boolean`
+#### checked `boolean`
 Initial value of the switch
+
+### Input
+
+```jsx
+import { Input } from 'aspekto'
+<Input valid={(s)=> s ==='john'} label={'username'} />
+```
+
+#### label [required] `string`
+The label of the field
+
+#### handle `(s: string) => any`
+Callback function that gets fired when the input value changes
+
+#### valid `(s: string) => boolean | Promise<boolean>`
+
+Function that gets called to check if the input is valid.
+This can be an async call to an API or simple function that checks a regex
+
+###### Example
+
+```jsx
+const isUsernameAvailable = async (username) => await MyCoolApi.call(username)
+
+<Input valid={isUsernameAvailable} label={'username'}/>
+```
+
+#### disabled `boolean`
+Whether the component is disabled or not
+
+#### initial `string`
+Initial value of the input field
