@@ -1,0 +1,43 @@
+{
+  "name": "aspekto",
+  "version": "1.0.0",
+  "description": "UI Kit",
+  "main": "./lib/index.js",
+  "types": "./lib/aspekto.d.ts",
+  "scripts": {
+    "dev": "webpack -w -d",
+    "build": "webpack -p",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CupCakeArmy/aspekto.git"
+  },
+  "keywords": [
+    "UI"
+  ],
+  "author": "Niccolo Borgioli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CupCakeArmy/aspekto/issues"
+  },
+  "homepage": "https://github.com/CupCakeArmy/aspekto#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.7.22",
+    "@types/react-dom": "^16.0.11",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^2.1.0",
+    "dts-bundle": "^0.7.3",
+    "dts-bundle-webpack": "^1.0.2",
+    "file-loader": "^3.0.1",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  }
+}
