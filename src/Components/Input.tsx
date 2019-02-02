@@ -7,7 +7,7 @@ export type InputProps = {
 	disabled?: boolean,
 	initial?: string,
 	label: string
-	type?: 'text' | 'email'
+	type?: 'text' | 'email' | 'password'
 }
 
 const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = (props) => {
