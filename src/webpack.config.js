@@ -6,7 +6,7 @@ module.exports = {
     context: `${__dirname}`,
     target: 'node',
     entry: [
-        `./index.tsx`,
+        `./index.ts`,
     ],
     output: {
         path: `${__dirname}/../lib`,
