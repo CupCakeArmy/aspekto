@@ -1,13 +1,14 @@
 {
   "name": "aspekto",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "UI Kit",
   "main": "./lib/index.js",
   "types": "./lib/aspekto.d.ts",
   "scripts": {
     "dev": "webpack -w -d & open ./test/index.html",
     "build": "webpack -p",
-    "prepublish": "npm run build"
+    "cleanBuildFile": "sed -iq '/index.styl/d' lib/aspekto.d.ts",
+    "prepublish": "npm run build && npm run cleanBuildFile"
   },
   "repository": {
     "type": "git",
