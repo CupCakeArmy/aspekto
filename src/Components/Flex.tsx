@@ -16,7 +16,7 @@ export type FlexItemProps = {
 const Container: React.FC<FlexContainerProps & React.HTMLAttributes<HTMLElement>> = (props) => {
 	const { vertical, horizontal, center, fill } = props
 	return <div className={removeRepeatingSpaces(
-		`flex col ${vertical ? 'vertical' : ''} ${center ? 'center' : ''} ${horizontal ? 'horizontal' : ''} ${fill ? 'fill' : ''} ${props.className || ''}`,
+		`aspekto flex col ${vertical ? 'v' : ''} ${center ? 'c' : ''} ${horizontal ? 'h' : ''} ${fill ? 'fill' : ''} ${props.className || ''}`,
 	)}>
 		{props.children}
 	</div>
@@ -25,7 +25,7 @@ const Container: React.FC<FlexContainerProps & React.HTMLAttributes<HTMLElement>
 const Item: React.FC<FlexItemProps & React.HTMLAttributes<HTMLElement>> = (props) => {
 	const { shrink, grow } = props
 	return <div className={removeRepeatingSpaces(
-		`flex row ${shrink ? 'shrink' : ''} ${grow ? 'grow' : ''}`,
+		`aspekto flex row ${shrink ? 's' : ''} ${grow ? 'g' : ''} ${props.className || ''}`,
 	)}>
 		{props.children}
 	</div>

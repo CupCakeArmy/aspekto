@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useEffect, useRef, useState } from 'react'
+import { removeRepeatingSpaces } from '../Util'
 
 export type InputProps = {
 	valid?: (s: string) => boolean | Promise<boolean>,
@@ -10,8 +11,7 @@ export type InputProps = {
 	type?: 'text' | 'email' | 'password'
 }
 
-const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = (props) => {
-	const { initial, handle, label, type, valid, disabled, ...rest } = props
+const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = ({ initial, handle, label, type, valid, disabled, ...rest }) => {
 
 	const [currentValue, setCurrentValue] = useState<string>(initial || '')
 	const [isValid, setIsValid] = useState<boolean>(true)
@@ -44,7 +44,7 @@ const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = (props) 
 	}, [])
 
 	return (
-		<div className={`input ${isValid ? '' : 'error'}`} ref={refInput}>
+		<div className={removeRepeatingSpaces(`aspekto input ${isValid ? '' : 'error'} ${rest.className || ''}`)} ref={refInput}>
 			<span className={`label${(isActive || currentValue) ? ' top' : ''}`} ref={refLabel}>{label}</span>
 			<input
 				{...rest}

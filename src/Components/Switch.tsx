@@ -1,26 +1,27 @@
 import * as React from 'react'
+import { removeRepeatingSpaces } from '../Util'
 
 export type SwitchProps = {
 	checked?: boolean
-	handle?: (cheched: boolean) => void
+	handle?: (checked: boolean) => void
 }
 
-const Switch: React.FC<SwitchProps & React.HTMLAttributes<HTMLElement>> = (props) => {
+const Switch: React.FC<SwitchProps & React.HTMLAttributes<HTMLElement>> = ({ checked, handle, className, ...props }) => {
 
-	const [isChecked, setIsCheched] = React.useState<boolean>(false)
+	const [isChecked, setIsChecked] = React.useState<boolean>(false)
 
 	React.useEffect(() => {
-		if (props.checked) setIsCheched(true)
+		if (checked) setIsChecked(true)
 	}, [])
 
-	return <label className="switch">
+	return <label className={removeRepeatingSpaces(`aspekto switch ${className || ''}`)} {...props}>
 		<input
 			type="checkbox"
 			checked={isChecked}
 			onChange={(e) => {
 				const checked = e.target.checked
-				setIsCheched(checked)
-				if (typeof props.handle === 'function') props.handle(checked)
+				setIsChecked(checked)
+				if (typeof handle === 'function') handle(checked)
 			}}
 		/>
 		<span className="slider"/>

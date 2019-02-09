@@ -1,11 +1,11 @@
 @require './Vars.styl'
 
-.input
+.aspekto.input
 	position relative
 	font-size 1em
 	margin 1em 0
 
-	.label
+	& > .label
 		position absolute
 		top ($spacing / 5)
 		color $darker
@@ -16,7 +16,8 @@
 			transform translate(-20%, -80%) scale(0.6)
 			color $darker
 
-	.field
+	& > .field
+		background transparent
 		font-family inherit
 		font-size inherit
 		width 100%
