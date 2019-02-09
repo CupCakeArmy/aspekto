@@ -1,6 +1,7 @@
 import * as React from 'react'
 
-import { Button, Card, Flex, Input, Switch, HR } from '../lib/index'
+import { Button, Card, Flex, Input, Switch, HR, Click } from '../lib/index'
+
 
 const App: React.FC = () => {
 	return <div className={'fill'} style={{ fontFamily: `'Helvetica Neue', sans-serif` }}>
@@ -17,8 +18,9 @@ const App: React.FC = () => {
 					<Button handle={() => console.log('Test')}>
 						login
 					</Button>
-					<HR vertical/>
+					<HR horizontal/>
 					<h2>Sub</h2>
+					<Click handle={()=>console.log('test')}><i className="icon ion-md-heart"/></Click>
 				</Card>
 			</Flex.Item>
 		</Flex.Container>
