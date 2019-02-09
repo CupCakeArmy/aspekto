@@ -1,6 +1,6 @@
 {
   "name": "aspekto",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "UI Kit",
   "main": "./lib/index.js",
   "types": "./lib/aspekto.d.ts",
