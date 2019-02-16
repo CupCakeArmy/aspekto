@@ -2,9 +2,11 @@ import * as React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { removeRepeatingSpaces } from '../Util'
 
+export type InputHandleArguments = { value: string, valid: boolean, label: string }
+
 export type InputProps = {
 	valid?: (s: string) => boolean | Promise<boolean>,
-	handle?: (s: string) => any
+	handle?: (obj: InputHandleArguments) => any
 	disabled?: boolean,
 	initial?: string,
 	label: string
@@ -41,11 +43,16 @@ const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = ({ initi
 		}, { passive: true })
 
 		_valid(currentValue)
+		// if (handle) handle({ value: currentValue, valid: isValid, label })
 	}, [])
+
+	useEffect(() => {
+		if (handle) handle({ value: currentValue, valid: isValid, label })
+	})
 
 	return (
 		<div className={removeRepeatingSpaces(`aspekto input ${isValid ? '' : 'error'} ${rest.className || ''}`)} ref={refInput}>
-			<span className={`label${(isActive || currentValue) ? ' top' : ''}`} ref={refLabel}>{label}</span>
+			<span className={`label ${((isActive && !disabled) || currentValue) ? 'top' : ''}`} ref={refLabel}>{label}</span>
 			<input
 				{...rest}
 				ref={refField}
@@ -57,7 +64,6 @@ const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = ({ initi
 					if (disabled) return
 					const value = e.target.value
 					setCurrentValue(value)
-					if (typeof handle === 'function') handle(value)
 					_valid(value)
 				}}
 			/>
