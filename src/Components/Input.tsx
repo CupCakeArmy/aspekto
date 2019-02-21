@@ -25,8 +25,7 @@ const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = ({ initi
 	const refField = useRef<HTMLInputElement>(null)
 
 	const _valid = async (value: string) => {
-		if (!value) setIsValid(true)
-		else if (typeof valid === 'function') setIsValid(await valid(value))
+		if (typeof valid === 'function') setIsValid(await valid(value))
 	}
 
 	useEffect(() => {
@@ -51,7 +50,7 @@ const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = ({ initi
 	})
 
 	return (
-		<div className={removeRepeatingSpaces(`aspekto input ${isValid ? '' : 'error'} ${rest.className || ''}`)} ref={refInput}>
+		<div className={removeRepeatingSpaces(`aspekto input ${(isValid || !currentValue) ? '' : 'error'} ${rest.className || ''}`)} ref={refInput}>
 			<span className={`label ${((isActive && !disabled) || currentValue) ? 'top' : ''}`} ref={refLabel}>{label}</span>
 			<input
 				{...rest}

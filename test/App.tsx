@@ -3,7 +3,6 @@ import * as React from 'react'
 import { Button, Card, Click, Flex, HR, Switch, useFormHelper, Input } from '../lib/index'
 
 const App: React.FC = () => {
-	// const [username, setUsername] = useState({})
 	const [handler, submit] = useFormHelper()
 
 	return <div className={'fill'} style={{ fontFamily: `'Helvetica Neue', sans-serif` }}>
@@ -12,7 +11,7 @@ const App: React.FC = () => {
 				<Card>
 					<h1>Form</h1>
 					<Input label={'username'} valid={s => /test/.test(s)} handle={handler()} disabled/>
-					<Input label={'password'} type={'password'} handle={handler()}/>
+					<Input label={'password'} type={'password'} handle={handler()} valid={(s)=> /^.{4,}$/.test(s)}/>
 					<Input label={'repeat-password'} type={'password'} handle={handler()}/>
 					<br/>
 					Keep Session <Switch checked={true} handle={console.log}/>
