@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from 'react'
 import { removeRepeatingSpaces } from '../Util'
 
 export type InputHandleArguments = { value: string, valid: boolean, label: string }
+export type InputHandleFN = (obj: InputHandleArguments) => any
 
 export type InputProps = {
 	valid?: (s: string) => boolean | Promise<boolean>,
-	handle?: (obj: InputHandleArguments) => any
+	handle?: InputHandleFN,
 	disabled?: boolean,
 	initial?: string,
 	label: string
@@ -43,7 +44,6 @@ const Input: React.FC<InputProps & React.HTMLAttributes<HTMLElement>> = ({ initi
 		}, { passive: true })
 
 		_valid(currentValue)
-		// if (handle) handle({ value: currentValue, valid: isValid, label })
 	}, [])
 
 	useEffect(() => {
